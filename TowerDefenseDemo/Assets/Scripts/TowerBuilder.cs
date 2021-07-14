@@ -10,7 +10,7 @@ public class TowerBuilder : MonoBehaviour
     {
         if(_shop.TryCellTower())
         {
-            GameObject newTower = Instantiate(_shop.GetTower(0), towerPosition + new Vector3(0.5f, -0.5f), 
+            GameObject tower = Instantiate(_shop.GetTower(0), towerPosition + new Vector3(0.5f, -0.5f), 
                                               Quaternion.identity, GetComponent<TowerBuilder>().transform);
         }
     }

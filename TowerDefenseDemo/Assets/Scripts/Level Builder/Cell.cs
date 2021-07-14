@@ -4,7 +4,6 @@ using UnityEngine;
 public class Cell : MonoBehaviour
 {  
     [SerializeField] private SpriteRenderer _cellSP;
-
     [SerializeField] private Color _highlightColor;
 
     private TowerBuilder _builder;
@@ -17,7 +16,6 @@ public class Cell : MonoBehaviour
     private void Start()
     {
         _baseColor = _cellSP.color;
-
         _builder = FindObjectOfType<TowerBuilder>();
     }
 
@@ -48,7 +46,7 @@ public class Cell : MonoBehaviour
     }
 
     private void OnMouseDown()
-    { 
+    {
         if (!IsGround && !HasTower)
         {
             _builder.TryBuild(transform.position);

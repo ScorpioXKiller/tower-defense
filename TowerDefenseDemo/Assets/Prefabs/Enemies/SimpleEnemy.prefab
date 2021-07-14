@@ -145,8 +145,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bceba2853ac7fc147a8c44c0833a62d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
   _health: {fileID: 2778176820820775025}
+  _path: {fileID: 0}
+  speed: 2
 --- !u!1 &482121225363211829
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5878bb10a1d595e4fb2757d7704fed9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _value: 40
+  _value: 10
   _fullHealth: {r: 0.10980393, g: 0.78823537, b: 0, a: 1}
   _nonHealth: {r: 1, g: 0, b: 0, a: 1}
   _healthBar: {fileID: 7211933119457285250}

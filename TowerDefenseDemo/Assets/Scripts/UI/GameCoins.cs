@@ -1,29 +1,21 @@
 using UnityEngine;
 
-public class CoinsCounter : MonoBehaviour
+public class GameCoins : GameElement
 {
     public event System.Action OnValueChanged;
 
-    [SerializeField] private int _startValue;
+    [SerializeField] private int _coinsPerEnemy;
 
-    private int _value;
     private int _transaction;
 
-    public int CurrentValue
+    public override void OnEnemySpawned()
     {
-        get
-        {
-            return _value;
-        }
-        private set
-        {
-            _value = value;
-        }
+        FirstEnemy.OnDie += CoinsCounter_OnDie;
     }
 
-    private void Awake()
+    private void CoinsCounter_OnDie()
     {
-        _value = _startValue;
+        Get(_coinsPerEnemy);
     }
 
     public void Spend()
@@ -43,6 +35,16 @@ public class CoinsCounter : MonoBehaviour
         _transaction = transaction;
         CurrentValue += _transaction;
         OnValueChanged?.Invoke();
+    }
+
+    private void OnDisable()
+    {
+        if (FirstEnemy != null)
+        {
+            FirstEnemy.OnDie -= CoinsCounter_OnDie;
+        }
+        else
+            return;
     }
 }
 

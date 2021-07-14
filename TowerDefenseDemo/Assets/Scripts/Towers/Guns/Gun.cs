@@ -12,14 +12,14 @@ public abstract class Gun : MonoBehaviour
         IsReady = true;
     }
 
-    public abstract void ShootBehaviour(Transform shootPoint, Transform target);
+    public abstract void ShootBehaviour(Transform target);
 
-    public void Shoot(Transform shootPoint, Transform target)
+    public void Shoot(Transform target)
     {
         IsReady = false;
         StartCoroutine(CooldownShooting());
 
-        ShootBehaviour(shootPoint, target);
+        ShootBehaviour(target);
     }  
 
     private IEnumerator CooldownShooting()

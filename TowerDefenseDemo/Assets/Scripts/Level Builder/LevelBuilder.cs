@@ -10,7 +10,7 @@ public class LevelBuilder : MonoBehaviour
    
     [SerializeField] private Cell _cell;
     [SerializeField] private PathBuilder _path;
-    [SerializeField] private EnemySpawner _spawner;
+    [SerializeField] private EnemyCreator _spawner;
     [SerializeField] private Transform _cellParent;
 
     [SerializeField] private Color[] _cellColor = new Color[3];

@@ -3,7 +3,7 @@ using UnityEngine;
 public class Shop : MonoBehaviour
 {
     [SerializeField] private Tower[] _towers;
-    [SerializeField] private CoinsCounter _coins;
+    [SerializeField] private GameCoins _coins;
 
     public bool TryCellTower()
     {

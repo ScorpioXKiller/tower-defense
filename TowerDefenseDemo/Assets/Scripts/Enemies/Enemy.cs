@@ -1,28 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using System;
 
 public abstract class Enemy : MonoBehaviour, IDamageable
 {
-    [SerializeField] private float speed;
-    [SerializeField] protected Health _health;
-    private CoinsCounter _coins;
-    private GameLives _lives;
+    public event System.Action OnReachedFinish;
+    public event System.Action OnDie;
 
-    private PathBuilder _path;
+    [SerializeField] protected Health _health;
+    [SerializeField] private PathBuilder _path;
+    [SerializeField] private float speed;
+
     private List<GameObject> _pathCells = new List<GameObject>();
 
     private int _wayIndex;
     private readonly float _finishPoint = 0.2f;
 
-    public bool IsAlive => _health.CurrentValue > 0;
+    private bool IsAlive => _health.CurrentValue > 0;
+
+    private bool IsReachedFinish => _wayIndex >= _pathCells.Count - 1;
 
     protected virtual void Start()
     {
         _wayIndex = 0;
         _path = FindObjectOfType<PathBuilder>();
-        _coins = FindObjectOfType<CoinsCounter>();
-        _lives = FindObjectOfType<GameLives>();
         _pathCells = _path.GetPath();
     }
 
@@ -40,38 +40,30 @@ public abstract class Enemy : MonoBehaviour, IDamageable
             Die();
     }
 
-    private void Die()
-    {
-        Destroy(gameObject, 0.2f);    
-    }
-
     private void MoveToTarget()
     {
         var currentPath = new Vector3(_pathCells[_wayIndex].transform.position.x + 0.5f, _pathCells[_wayIndex].transform.position.y - 0.5f);
 
         Vector2 dir = currentPath - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime);
-    
-        if(Vector2.Distance(transform.position, currentPath) < _finishPoint)
+
+        if (Vector2.Distance(transform.position, currentPath) < _finishPoint)
         {
-            if (_wayIndex < _pathCells.Count - 1)
+            if (!IsReachedFinish)
                 _wayIndex++;
             else
             {
-                _lives.TakeAway();
+                OnReachedFinish?.Invoke();
                 Destroy(gameObject);
             }
-                
         }
     }
 
-    private void OnDestroy()
+    private void Die()
     {
-        if (!IsAlive)
-        {
-            EnemyCounter.EnemyKills++;
-            _coins.Get(20);
-        }
-            
+        OnDie?.Invoke();
+        Destroy(gameObject, 0.2f);    
     }
+
+    
 }

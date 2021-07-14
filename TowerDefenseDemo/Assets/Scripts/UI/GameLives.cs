@@ -1,32 +1,15 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine.SceneManagement;
 
-public class GameLives : MonoBehaviour
+public class GameLives : GameElement
 {
     public event System.Action OnValueChanged;
 
-    [SerializeField] private int _startValue;
-
-    private int _value;
-
-    public int CurrentValue
+    public override void OnEnemySpawned()
     {
-        get
-        {
-            return _value;
-        }
-        private set
-        {
-            _value = value;
-        }
+        FirstEnemy.OnReachedFinish += TakeLife;
     }
 
-    private void Awake()
-    {
-        _value = _startValue;
-    }
-
-    public void TakeAway()
+    public void TakeLife()
     {
         if(CurrentValue > 1)
         {
@@ -36,6 +19,14 @@ public class GameLives : MonoBehaviour
         else
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
+
+    private void OnDisable()
+    {
+        if(FirstEnemy != null)
+        {
+            FirstEnemy.OnReachedFinish -= TakeLife;
         }
     }
 }

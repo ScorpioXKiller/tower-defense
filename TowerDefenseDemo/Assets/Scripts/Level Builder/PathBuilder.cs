@@ -12,6 +12,11 @@ public class PathBuilder : MonoBehaviour
 
     private bool IsCurrentCellGround(int x, int y) => LevelCells[x, y].GetComponent<Cell>().IsGround;
 
+    public List<GameObject> GetPath()
+    {
+        return _pathCells;
+    }
+
     public void BuildPath(GameObject firstCell, int currentWayX, int currentWayY, int levelWidth)
     {
         FirstPathCell = firstCell;
@@ -57,10 +62,5 @@ public class PathBuilder : MonoBehaviour
 
             _pathCells.Add(currentPathCell);
         }
-    }
-
-    public List<GameObject> GetPath()
-    {
-        return _pathCells;
     }
 }

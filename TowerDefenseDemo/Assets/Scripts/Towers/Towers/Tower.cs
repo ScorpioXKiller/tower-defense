@@ -6,7 +6,6 @@ public abstract class Tower : MonoBehaviour
 {
     [SerializeField] private int _price;
     [SerializeField] private float attackRadius;
-    [SerializeField] private Transform _shotPoint;
 
     public int Price => _price;
 
@@ -14,25 +13,25 @@ public abstract class Tower : MonoBehaviour
 
     private void Update()
     {
-        if(GetCloserTarget() != null)
+        if(GetClosestTarget() != null)
         {
             LockAtTarget();
 
             if (gun.IsReady)
-                gun.Shoot(_shotPoint, GetCloserTarget());
+                gun.Shoot(GetClosestTarget());
         }
     }
 
     private void LockAtTarget()
     {   
-        var dirToTarget = GetCloserTarget().transform.position - transform.position;
+        var dirToTarget = GetClosestTarget().transform.position - transform.position;
         var angle = Mathf.Atan2(dirToTarget.y, dirToTarget.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
-    public Transform GetCloserTarget()
+    public Transform GetClosestTarget()
     {
-        Transform closerTarget = null;
+        Transform closestTarget = null;
         float shortestDistance = Mathf.Infinity;
 
         foreach (var enemy in FindObjectsOfType<Enemy>())
@@ -41,10 +40,10 @@ public abstract class Tower : MonoBehaviour
 
             if (distanceToTarget < shortestDistance && distanceToTarget <= attackRadius)
             {
-                closerTarget = enemy.transform;
+                closestTarget = enemy.transform;
                 shortestDistance = distanceToTarget;
             }
         }
-        return closerTarget;
+        return closestTarget;
     }
 }

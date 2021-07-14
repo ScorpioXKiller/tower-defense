@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class CoinsUI : MonoBehaviour
 {
     [SerializeField] private Text _coinsText;
-    [SerializeField] private CoinsCounter _coins;
+    [SerializeField] private GameCoins _coins;
 
 
     private void Start()

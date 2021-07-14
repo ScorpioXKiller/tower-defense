@@ -6,12 +6,12 @@ public class Cannon : Gun
 {
     [SerializeField] private Projectile _projectile;
 
-    public override void ShootBehaviour(Transform shootPoint, Transform target)
+    public override void ShootBehaviour(Transform target)
     {
         if (target == null) return;
 
         StartCoroutine(Delay());
-        var projectile = Instantiate(_projectile, shootPoint.transform.position, Quaternion.identity, transform.parent);
+        var projectile = Instantiate(_projectile, transform.position, Quaternion.identity, transform.parent);
 
         if(projectile != null)
             projectile.DetectTarget(target);
