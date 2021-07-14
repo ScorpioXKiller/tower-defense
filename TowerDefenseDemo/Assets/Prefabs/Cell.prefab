@@ -125,4 +125,3 @@ MonoBehaviour:
   _cellSP: {fileID: 2661510257964115825}
   _highlightColor: {r: 0.07058824, g: 0.23137255, b: 0.039215688, a: 1}
   IsGround: 0
-  HasTower: 0

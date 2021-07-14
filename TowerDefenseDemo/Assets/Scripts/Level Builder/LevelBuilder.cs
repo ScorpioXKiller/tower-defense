@@ -4,34 +4,35 @@ using UnityEngine;
 
 public class LevelBuilder : MonoBehaviour
 {
-    [SerializeField] private int _width;
-    [SerializeField] private int _height;
-    [SerializeField] private int _level;
-   
+    [SerializeField] [Range(1, 4)] private int _level;
+
     [SerializeField] private Cell _cell;
     [SerializeField] private PathBuilder _path;
-    [SerializeField] private EnemyCreator _spawner;
     [SerializeField] private Transform _cellParent;
-
     [SerializeField] private Color[] _cellColor = new Color[3];
+
+    private const int _width = 18;
+    private const int _height = 10;
 
     private int _currentWayX;
     private int _currentWayY;
+    
+    private GameObject[,] _levelCells;
     private GameObject _firstCell;
 
-    private Transform levelTR;
+    private bool IsCurrentCellGround(int x, int y) => _levelCells[x, y].GetComponent<Cell>().IsGround;
 
     private void Start()
     {
-        levelTR = GetComponent<Transform>();
-
         BuildLevel();
-        SetLevelPosition();
-        _path.BuildPath(_firstCell, _currentWayX, _currentWayY, _width);
+        _path = GetComponentInChildren<PathBuilder>();
+        _path.BuildPath(_firstCell, _currentWayX, _currentWayY, _width, IsCurrentCellGround, _levelCells);
     }
 
     private void BuildLevel()
     {
+        _levelCells = new GameObject[_height, _width];
+
         for (int x = 0; x < _height; x++)
         {
             for (int y = 0; y < _width; y++)
@@ -39,12 +40,7 @@ public class LevelBuilder : MonoBehaviour
                 CreateCell(x, y);
             }
         }
-    }
-
-    private void SetLevelPosition()
-    {
-        levelTR.position = new Vector3(-3.888892f, -3.888886f, -5.030024e-06f);
-        levelTR.rotation = Quaternion.Euler(180, 0, 90);
+        SetLevelPosition();
     }
 
     private void CreateCell(int x, int y)
@@ -68,9 +64,14 @@ public class LevelBuilder : MonoBehaviour
                 _currentWayY = y;
             }
         }
-        _path.LevelCells[x, y] = cellPrefab;
+        _levelCells[x, y] = cellPrefab;
     }
-    
+
+    private void SetLevelPosition()
+    {
+        transform.position = new Vector3(-3.888892f, -3.888886f, -5.030024e-06f);
+        transform.rotation = Quaternion.Euler(180, 0, 90);
+    }
 
 
     private string[] LoadLevelText(int level)

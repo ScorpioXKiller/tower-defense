@@ -2,19 +2,21 @@
 using UnityEngine;
 
 public class Cell : MonoBehaviour
-{  
+{
     [SerializeField] private SpriteRenderer _cellSP;
     [SerializeField] private Color _highlightColor;
 
-    private TowerBuilder _builder;
+    public bool IsGround = false;
 
+    private TowerBuilder _builder;
     private Color _baseColor;
 
-    public bool IsGround = false;
-    public bool HasTower = false;
+    private bool _hasTower; 
 
     private void Start()
     {
+        _hasTower = false;
+
         _baseColor = _cellSP.color;
         _builder = FindObjectOfType<TowerBuilder>();
     }
@@ -26,7 +28,7 @@ public class Cell : MonoBehaviour
         float cellSizeX = _cellSP.bounds.size.x;
         float cellSizeY = _cellSP.bounds.size.y;
 
-        return new Vector3(worldPos.x + (cellSizeX * x), worldPos.y + (cellSizeY * -y));      
+        return new Vector3(worldPos.x + (cellSizeX * x), worldPos.y + (cellSizeY * -y));
     }
 
     public void SetColor(Color color)
@@ -47,10 +49,10 @@ public class Cell : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!IsGround && !HasTower)
+        if (!IsGround && !_hasTower)
         {
             _builder.TryBuild(transform.position);
-            HasTower = true;
+            _hasTower = true;
         }
     }
 }

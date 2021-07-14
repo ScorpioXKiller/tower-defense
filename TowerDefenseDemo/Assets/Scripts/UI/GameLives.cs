@@ -6,7 +6,7 @@ public class GameLives : GameElement
 
     public override void OnEnemySpawned()
     {
-        FirstEnemy.OnReachedFinish += TakeLife;
+        FirstEnemy.OnReachedTarget += TakeLife;
     }
 
     public void TakeLife()
@@ -26,7 +26,7 @@ public class GameLives : GameElement
     {
         if(FirstEnemy != null)
         {
-            FirstEnemy.OnReachedFinish -= TakeLife;
+            FirstEnemy.OnReachedTarget -= TakeLife;
         }
     }
 }

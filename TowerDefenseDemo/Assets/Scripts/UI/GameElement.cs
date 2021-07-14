@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class GameElement : MonoBehaviour
 {
-    [SerializeField] private EnemyCreator _enemyCreator;
+    [SerializeField] private EnemySpawner _enemySpawner;
     [SerializeField] private int _startValue;
 
     protected Enemy FirstEnemy
@@ -39,19 +39,19 @@ public abstract class GameElement : MonoBehaviour
     private void OnEnable()
     {
         _value = _startValue;
-        _enemyCreator.OnEnemySpawned += UIElement_OnEnemySpawned;
+        _enemySpawner.OnEnemySpawned += UIElement_OnEnemySpawned;
     }
 
     public abstract void OnEnemySpawned();
 
     private void UIElement_OnEnemySpawned()
     {
-        _enemies = _enemyCreator.GetEnemyList();
+        _enemies = _enemySpawner.GetEnemyList();
         OnEnemySpawned();
     }
 
     private void OnDisable()
     {
-        _enemyCreator.OnEnemySpawned -= UIElement_OnEnemySpawned;
+        _enemySpawner.OnEnemySpawned -= UIElement_OnEnemySpawned;
     }
 }

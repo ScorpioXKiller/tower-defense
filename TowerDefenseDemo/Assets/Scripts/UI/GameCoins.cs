@@ -10,7 +10,7 @@ public class GameCoins : GameElement
 
     public override void OnEnemySpawned()
     {
-        FirstEnemy.OnDie += CoinsCounter_OnDie;
+        FirstEnemy.OnDied += CoinsCounter_OnDie;
     }
 
     private void CoinsCounter_OnDie()
@@ -41,7 +41,7 @@ public class GameCoins : GameElement
     {
         if (FirstEnemy != null)
         {
-            FirstEnemy.OnDie -= CoinsCounter_OnDie;
+            FirstEnemy.OnDied -= CoinsCounter_OnDie;
         }
         else
             return;

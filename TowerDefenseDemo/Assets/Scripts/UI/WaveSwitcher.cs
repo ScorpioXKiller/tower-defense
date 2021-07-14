@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class WaveChanger : MonoBehaviour
+public class WaveSwitcher : MonoBehaviour
 {
     public event System.Action OnValueChanged;
 
@@ -30,7 +30,6 @@ public class WaveChanger : MonoBehaviour
             CurrentValue++;
             IsStarted = true;
             OnValueChanged?.Invoke();
-        }
-        
+        }        
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class WavesUI : MonoBehaviour
 {
     [SerializeField] private Text _wavesText;
-    [SerializeField] private WaveChanger _wave;
+    [SerializeField] private WaveSwitcher _wave;
 
     private void Start()
     {

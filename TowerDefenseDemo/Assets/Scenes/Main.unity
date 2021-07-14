@@ -149,16 +149,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 84884563}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1720280775}
-  m_RootOrder: 5
+  m_Father: {fileID: 1996047837}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -54, y: -162}
+  m_AnchoredPosition: {x: 906.00006, y: 378}
   m_SizeDelta: {x: 268, y: 84}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &84884565
@@ -353,7 +353,6 @@ MonoBehaviour:
   - {fileID: 7076261748441707254, guid: 61538386a80d3ad4a8a31e708e6214db, type: 3}
   - {fileID: 7076261748441707254, guid: 74a8ddcbe5b9ad04680d81580402deba, type: 3}
   _path: {fileID: 726429238}
-  _enemies: []
 --- !u!1 &638768103
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,16 +379,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 638768103}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1720280775}
-  m_RootOrder: 3
+  m_Father: {fileID: 2092968761}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 960.00006, y: 540}
   m_SizeDelta: {x: 322, y: 84}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &638768105
@@ -491,7 +490,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a18c20a96e23e3f4bbad382a71e5b1e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pathCells: []
 --- !u!1 &859549410
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,7 +575,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1373135648}
   - component: {fileID: 1373135647}
-  - component: {fileID: 1373135649}
   m_Layer: 0
   m_Name: LevelBuilder
   m_TagString: Untagged
@@ -597,12 +594,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 817f27ada6fc7af45865ee10c51afa38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _width: 18
-  _height: 10
   _level: 1
   _cell: {fileID: 8413832763049992238, guid: 514b3bf8c2774b042ac19638b51b7e68, type: 3}
   _path: {fileID: 726429238}
-  _spawner: {fileID: 548676285}
   _cellParent: {fileID: 859549411}
   _cellColor:
   - {r: 0.07058824, g: 0.28235295, b: 0.039215688, a: 1}
@@ -624,19 +618,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1373135649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1373135646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a18c20a96e23e3f4bbad382a71e5b1e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _pathCells: []
 --- !u!1 &1558428006
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,16 +644,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1558428006}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1720280775}
-  m_RootOrder: 4
+  m_Father: {fileID: 1712696735}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -54, y: -81}
+  m_AnchoredPosition: {x: 906.00006, y: 459}
   m_SizeDelta: {x: 268, y: 84}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1558428008
@@ -788,7 +769,7 @@ GameObject:
   - component: {fileID: 1712696735}
   - component: {fileID: 1712696734}
   m_Layer: 0
-  m_Name: LivesCounter
+  m_Name: GameLives
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -806,7 +787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c48aa8cfc0421d47a8a62ec69e519e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyCreator: {fileID: 548676285}
+  _enemySpawner: {fileID: 548676285}
   _startValue: 10
 --- !u!4 &1712696735
 Transform:
@@ -818,7 +799,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1558428007}
   m_Father: {fileID: 1720280775}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -916,9 +898,6 @@ RectTransform:
   - {fileID: 2092968761}
   - {fileID: 1712696735}
   - {fileID: 1996047837}
-  - {fileID: 638768104}
-  - {fileID: 1558428007}
-  - {fileID: 84884564}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1004,7 +983,7 @@ GameObject:
   - component: {fileID: 1996047837}
   - component: {fileID: 1996047836}
   m_Layer: 0
-  m_Name: WavesChanger
+  m_Name: WaveSwitcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1034,7 +1013,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 84884564}
   m_Father: {fileID: 1720280775}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1049,7 +1029,7 @@ GameObject:
   - component: {fileID: 2092968761}
   - component: {fileID: 2092968762}
   m_Layer: 0
-  m_Name: CoinsCounter
+  m_Name: GameCoins
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1065,7 +1045,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 638768104}
   m_Father: {fileID: 1720280775}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1081,6 +1062,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d197c7234e9c8934cb9a62b761189a1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyCreator: {fileID: 548676285}
+  _enemySpawner: {fileID: 548676285}
   _startValue: 100
   _coinsPerEnemy: 10

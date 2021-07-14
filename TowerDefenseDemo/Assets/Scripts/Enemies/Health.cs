@@ -17,7 +17,7 @@ public class Health : MonoBehaviour
         CurrentValue = MaxValue;
     }
 
-    public IEnumerator UpdateBar(float currentHealth)
+    public IEnumerator UpdateBarStatus(float currentHealth)
     {
         while (true)
         {
